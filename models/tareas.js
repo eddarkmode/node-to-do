@@ -7,6 +7,19 @@ class Tareas {
 
     _listado = {};
 
+    get listadoArr() {
+
+        const listado = [];
+
+        Object.keys(this._listado).forEach((key) => {
+            const tarea = this._listado[key];
+            listado.push( tarea );
+            
+            //console.log(key)
+        });
+
+        return listado;
+    }
 
     constructor() {
         this._listado = {};
@@ -17,6 +30,15 @@ class Tareas {
         const tarea = new Tarea(desc);
 
         this._listado[tarea.id] = tarea;
+    }
+
+    cargarTareasFromArray( tareas = [] ){
+
+        //this._listado[tarea.id] = tarea;
+        tareas.forEach((tarea) => {
+
+            this._listado[tarea.id] = tarea;
+        });
     }
 }
 
