@@ -29,8 +29,14 @@ const main = async() => {
             //console.log(desc);
             break;
         case '2':  //Listar tareas
-            console.log( tareas.listadoArr );
-
+            //console.log( tareas.listadoArr );
+            tareas.listadoCompleto()
+            break;
+        case '3': //Listar tareas completadas
+            tareas.listarPendientesCompletadas(true);
+            break;
+        case '4': //Listar tareas pendientes
+            tareas.listarPendientesCompletadas(false);
             break;
       }
 
