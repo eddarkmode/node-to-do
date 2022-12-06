@@ -23,6 +23,13 @@ class Tareas {
         this._listado = {};
     }
 
+    borrarTarea(  id = '' ) {
+
+        if( this._listado[id] ) {
+            delete this._listado[id];
+        }
+    }
+
     crearTarea( desc = '' ){
 
         const tarea = new Tarea(desc);
@@ -58,15 +65,15 @@ class Tareas {
             if( completadas ){ //Si se selecciono la opcion completadas
                 if( completadoEn ){
                     
-                    contador+=1;
-                    console.log( `${ contador  + '.' + desc + ' :: ' + estado }` );
+                    contador +=  1;
+                    console.log( `${ (contador  + '.').green + desc + ' :: ' + estado }` );
                 }
             }
             else{
                 if(! completadoEn ){
                     
                     contador+=1;
-                    console.log( `${ contador  + '.' + desc + ' :: ' + estado }` );
+                    console.log( `${ (contador  + '.').green + desc + ' :: ' + estado }` );
                 }
             }
         });
